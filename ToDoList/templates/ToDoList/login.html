@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
+{% extends 'ToDoList/main.html' %}
+{% block content %}
 
-    <form method="POST" action="">
+    <div class="header-bar">
+        <h1>Login</h1>
+    </div>
+
+    <div class="card-body">
+        <form method="POST" action="">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
-    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
-</body>
-</html>
+        <input class="button" type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </div>
+
+{% endblock content %}
