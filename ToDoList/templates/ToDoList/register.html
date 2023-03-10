@@ -1,17 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-    <h1>Register</h1>
+{% extends 'ToDoList/main.html' %}
+{% block content %}
 
-    <form method="POST" action="">
+    <div class="header-bar">
+        <h1>Register</h1>
+    </div>
+
+    <div class="card-body">
+        <form method="POST" action="">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Register">
-    </form>
-    <p>Already have an account? <a href="{% url 'logout' %}">Login</a></p>
-</body>
-</html>
+            <label for="">{{ form.username.label }}</label>
+        {{ form.username }}
+
+        {% csrf_token %}
+            <label for="">{{ form.password1.label }}</label>
+        {{ form.password1 }}
+
+        {% csrf_token %}
+            <label for="">{{ form.password2.label }}</label>
+        {{ form.password2 }}
+        <input style="margin-top: 10px" class="button" type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+
+{% endblock content %}
